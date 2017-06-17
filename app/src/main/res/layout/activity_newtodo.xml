@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:paddingBottom="5dp">
     <EditText android:id="@+id/title_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

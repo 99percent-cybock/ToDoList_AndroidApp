@@ -10,13 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
-import java.util.TreeSet;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -67,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, ViewActivity.class);
                 String title = titleArray.get(position);
-                //String text = textArray.get(position);
+                String text = textArray.get(position);
                 intent.putExtra(EXTRA_TITLE, title);
-                //intent.putExtra(EXTRA_TEXT, text);
+                intent.putExtra(EXTRA_TEXT, text);
                 intent.putExtra(EXTRA_POSITION, position);
                 startActivity(intent);
             }};
@@ -84,25 +78,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void refreshList(){
-        if (AddActivity.comesFrom) {
+        if (AddActivity.comesFromAdd) {
+            AddActivity.comesFromAdd = false;
             Intent intent = getIntent();
             String title = intent.getStringExtra(AddActivity.EXTRA_TITLE);
-            //String text = intent.getStringExtra(AddActivity.EXTRA_TEXT);
+            String text = intent.getStringExtra(AddActivity.EXTRA_TEXT);
             if (title.length() == 0) {
-                title = "Default ToDo Name";
+                title = getString(R.string.placeholder_title);
             }
-            //if (text.length() == 0) {
-            //    text = " ";
-            //}
+            if (text.length() == 0) {
+                text = getString(R.string.placeholder_text);
+            }
             titleArray.add(titleArray.size(),title);
-            //textArray.add(textArray.size(),text);
+            textArray.add(textArray.size(),text);
             commitToStorage();
         }
-        if (ViewActivity.comesFrom) {
+        if (ViewActivity.comesFromDelete) {
+            ViewActivity.comesFromDelete = false;
             Intent intent = getIntent();
             int position = intent.getIntExtra(ViewActivity.EXTRA_POSITION,0);
             titleArray.remove(position);
-            //textArray.remove(position);
+            textArray.remove(position);
             commitToStorage();
         }
     }
@@ -173,29 +169,3 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_showtodo);
     }*/
 }
-/*
-public class MainActivity extends AppCompatActivity {
-
-    private ArrayList<String> titleArray = new ArrayList<String>();
-
-    private View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            EditText input = (EditText) findViewById(R.id.edit_message);
-            titleArray.add(input.getText().toString());
-        }
-    };
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.button);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, titleArray);
-        ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(adapter);
-        button.setOnClickListener(listener);
-    }
-}
-*/

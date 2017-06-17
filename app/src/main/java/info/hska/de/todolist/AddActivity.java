@@ -9,7 +9,7 @@ import android.widget.EditText;
 public class AddActivity extends AppCompatActivity {
     public static final String EXTRA_TITLE = "info.hska.de.todolist.TITLE";
     public static final String EXTRA_TEXT = "info.hska.de.todolist.TEXT";
-    public static boolean comesFrom = false;
+    public static boolean comesFromAdd = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class AddActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.text_input);
         String text = editText.getText().toString();
         intent.putExtra(EXTRA_TEXT, text);
-        comesFrom = true;
+        comesFromAdd = true;
         startActivity(intent);
     }
 }

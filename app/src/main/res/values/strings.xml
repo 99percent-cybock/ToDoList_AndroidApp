@@ -8,6 +8,7 @@
     <string name="button_add">Add To-Do</string>
     <string name="button_cancel">Cancel</string>
     <string name="placeholder_title">Title</string>
+    <string name="placeholder_text">(No extra information)</string>
     <string name="selected_button_back">Show List</string>
     <string name="selected_button_delete">Delete Entry</string>
     <string name="preference_file_title_key">info.hska.de.todolist.key1</string>
