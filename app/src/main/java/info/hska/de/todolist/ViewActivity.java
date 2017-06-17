@@ -28,12 +28,6 @@ public class ViewActivity extends AppCompatActivity
         textView.setText(text);
     }
 
-    /*
-    public void switchActivityMain(View view) {
-        Intent intent = new Intent(ViewActivity.this, MainActivity.class);
-        startActivity(intent);
-    }*/
-
     public void deleteSwitchView(View view) {
         Intent intent = new Intent(ViewActivity.this, MainActivity.class);
         int position = it.getIntExtra(MainActivity.EXTRA_POSITION, 0);

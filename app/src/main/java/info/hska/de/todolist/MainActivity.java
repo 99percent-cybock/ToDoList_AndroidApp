@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         titleArray = new ArrayList<>();
         textArray = new ArrayList<>();
 
-
-
         String key1 = getString(R.string.preference_file_title_key);
         SharedPreferences sharedPref_title = this.getSharedPreferences(key1, Context.MODE_PRIVATE);
         String defaultTitle = "";
@@ -41,14 +39,6 @@ public class MainActivity extends AppCompatActivity {
         String defaultText = "";
         String compressed_text = sharedPref_text.getString(key2,defaultText);
         textArray = decompress(compressed_text);
-
-        /*
-        String key2 = getString(R.string.preference_file_text_key);
-        SharedPreferences sharedPref_text = this.getSharedPreferences(key2, Context.MODE_PRIVATE);
-        TreeSet<String> defText = new TreeSet<>();
-        Set<String> stored_text = sharedPref_text.getStringSet(key2,defText);
-        titleArray.addAll(stored_text);
-        */
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, titleArray);
@@ -142,30 +132,9 @@ public class MainActivity extends AppCompatActivity {
         editor_text.apply();
 
     }
-        /*
-        String title_key = getString(R.string.preference_file_title_key);
-        SharedPreferences sharedPref_title = getSharedPreferences(title_key, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor_title = sharedPref_title.edit();
-        Set<String> currentTitle = new TreeSet<>();
-        currentTitle.addAll(titleArray);
-        editor_title.putStringSet(title_key,currentTitle);
-        editor_title.apply();
-
-        String text_key = getString(R.string.preference_file_text_key);
-        SharedPreferences sharedPref_text = getSharedPreferences(text_key, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor_text = sharedPref_text.edit();
-        Set<String> currentText = new TreeSet<>();
-        currentText.addAll(textArray);
-        editor_text.putStringSet(text_key, currentText);
-        editor_text.apply();
-        */
 
     public void switchActivityAdd(View view) {
         Intent intent = new Intent(MainActivity.this, AddActivity.class);
         startActivity(intent);
     }
-/*
-    public void switchViewShowtodo(View view) {
-        setContentView(R.layout.activity_showtodo);
-    }*/
 }
