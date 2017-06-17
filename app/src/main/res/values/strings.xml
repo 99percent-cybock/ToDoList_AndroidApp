@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ToDo List</string>
+    <string name="title">Hello darkness</string>
+    <string name="button">Add</string>
+    <string name="edit_message">New ToDo…</string>
+    <string name="new_title">Enter a title</string>
+    <string name="new_text">Additional note \n(optional)</string>
+    <string name="button_add">Add To-Do</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="placeholder_title">Title</string>
+    <string name="selected_button_back">Show List</string>
+    <string name="selected_button_delete">Delete Entry</string>
+    <string name="preference_file_title_key">info.hska.de.todolist.key1</string>
+    <string name="preference_file_text_key">info.hska.de.todolist.key2</string>
+    <string name="item_seperator">\\^</string>
+</resources>
